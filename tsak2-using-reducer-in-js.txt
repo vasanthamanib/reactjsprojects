@@ -1,0 +1,10 @@
+var arr = [1,2,3,4,5,6,7,8,9,10];
+
+function caluculateArray(){
+console.log("Entered....");
+console.log(arr);
+var count = arr.reduce((prev,curr) => prev + curr);
+console.log(count);
+}
+ 
+caluculateArray();
