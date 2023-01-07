@@ -1,4 +1,4 @@
-//apply useContext to get state and action from Context
+//apply useState counter function with validations
 
 
 
@@ -9,11 +9,13 @@ function React_useState_demo() {
     const [count, setCount] = useState(0);
     
     const handleChangeIncrement = () =>{
-        setCount(count => count + 1)
+        setCount(count => count + 1);
     };
 
     const handleChangeDecrement = () =>{
-       setCount(count => count - 1)
+        if(count > 0){
+       setCount(count => count - 1);
+        }
     };
 
     const reset = () => {
