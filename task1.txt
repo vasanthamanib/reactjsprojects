@@ -1,0 +1,48 @@
+import "./styles.css";
+import React, { useState } from "react";
+import Select from "react-select";
+import { MultiSelect } from "react-multi-select-component";
+
+const options = [
+  { value: 1, label: 1 },
+  { value: 2, label: 2 },
+  { value: 3, label: 3 }
+];
+
+export default function App() {
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [selected, setSelected] = useState([]);
+
+  console.log(selectedOption, selected);
+
+  function getCaluculatedData() {
+    console.log("hi");
+    var count =
+      selected.map((items) => items.value).reduce((prev, curr) => prev + curr) +
+      selectedOption.value;
+    console.log(count);
+  }
+
+  return (
+    <div className="App">
+      <h1>Dropdown Task</h1>
+      <Select
+        defaultValue={selectedOption}
+        onChange={setSelectedOption}
+        options={options}
+      />
+
+      {/* <pre>{JSON.stringify(selected)}</pre> */}
+      <MultiSelect
+        options={options}
+        value={selected}
+        onChange={setSelected}
+        labelledBy="Select"
+      />
+
+      <button type="submit" onClick={() => getCaluculatedData()}>
+        Submit
+      </button>
+    </div>
+  );
+}
